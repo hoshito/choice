@@ -1,0 +1,99 @@
+.pageContainer {
+  min-height: 100vh;
+  position: relative;
+}
+
+.content {
+  padding-bottom: 32px; /* フッターの高さ分の余白 */
+}
+
+.footerMenu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background-color: rgb(82, 81, 81);
+  border-top: 1px solid #e5e5e5;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.menuButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-button span:last-child {
+  font-size: 14px;
+  margin-top: 4px;
+} 
+
+.active {
+  color: red;
+}
+
+
+.textFields {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.textFields input {
+  width: 100%;
+  padding: 12px;
+  background-color: #333;
+  border: 1px solid #555;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+}
+
+.textFields input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.textFields button[type="submit"] {
+  padding: 12px 24px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.textFields button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #444;
+  background-color: #333;
+}
+
+.header a {
+  color: white;
+  text-decoration: none;
+  padding: 8px;
+  margin-right: 8px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #fff;
+}

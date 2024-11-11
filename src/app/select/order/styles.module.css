@@ -1,0 +1,277 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #ccc;
+}
+
+.header h1 {
+  margin-left: 16px;
+}
+
+.opponentSection {
+  padding: 16px;
+  margin: 16px 0;
+  background: #464646;
+  border-radius: 8px;
+}
+
+.selectionRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.radioGroup {
+  display: flex;
+  gap: 16px;
+}
+
+.radioGroup label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+} 
+
+.pageContainer {
+  min-height: 100vh;
+  position: relative;
+}
+
+.content {
+  padding-bottom: 64px;
+}
+
+/* 既存のスタイルと同じなので省略 */
+
+.textFields textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+} 
+
+.pageContainer {
+  min-height: 100vh;
+  position: relative;
+}
+
+.content {
+  padding-bottom: 64px; /* フッターの高さ分の余白 */
+}
+
+.footerMenu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background-color: rgb(82, 81, 81);
+  border-top: 1px solid #e5e5e5;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.menuButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-button span:last-child {
+  font-size: 14px;
+  margin-top: 4px;
+} 
+
+.active {
+  color: red;
+}
+
+.textFields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.teamList {
+  padding: 16px;
+  margin: 16px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.teamList h2 {
+  margin-bottom: 12px;
+  color: #007bff;
+}
+
+.teamList ul {
+  list-style: none;
+  padding: 0;
+}
+
+.teamList li {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.teamList li:last-child {
+  border-bottom: none;
+}
+
+.teamCard {
+  background: #464646;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+}
+
+.teamCard h2 {
+  margin-bottom: 8px;
+}
+
+.teamCard ul {
+  list-style: none;
+  padding: 0;
+}
+
+.teamCard li {
+  margin: 4px 0;
+}
+
+.teamCard button {
+  background: #ff4444;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+.teamCard button:hover {
+  background: #ff0000;
+}
+
+.clickable {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.clickable:hover {
+  transform: scale(1.02);
+}
+
+.backButton {
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.opponentSection {
+  background: #464646;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px;
+}
+
+.opponentHeader {
+  margin-bottom: 16px;
+}
+
+.opponentHeader h2 {
+  margin-bottom: 4px;
+}
+
+.memo {
+  font-size: 12px;
+  color: #888;
+  white-space: pre-wrap;
+  line-height: 1.4;
+  padding-left: 8px;
+  border-left: 2px solid #666;
+}
+
+.selectionGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.selectionRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pokemonName {
+  font-size: 16px;
+  color: #ddd;
+}
+
+.radioGroup {
+  display: flex;
+  gap: 16px;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background-color: #333;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.radioLabel:hover {
+  background-color: #444;
+}
+
+.radioLabel input[type="radio"]:checked + span {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.pokemonName {
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.selectionControls {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.radioLabel {
+  text-align: center;
+  padding: 8px;
+  background: #333;
+  border-radius: 4px;
+  border: 1px solid transparent;
+}
+
+.radioLabel.checked {
+  border-color: #007bff;
+  background: #1a365d;
+}
+
+/* ラジオボタンを非表示にして、カスタムデザインに */
+.radioLabel input[type="radio"] {
+  display: none;
+}

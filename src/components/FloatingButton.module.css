@@ -1,0 +1,33 @@
+.floatingButton {
+  position: fixed;
+  right: 16px;
+  bottom: 80px; /* フッターメニューの上に配置 */
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
+  background-color: #007bff;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.floatingButton:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.floatingButton:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.plusIcon {
+  font-size: 24px;
+  font-weight: bold;
+} 
