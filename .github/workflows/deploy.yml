@@ -29,6 +29,10 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          # 環境変数を明示的に設定
+          NEXT_PUBLIC_BASE_PATH: '/choice'
+          CUSTOM_DOMAIN: ''
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
