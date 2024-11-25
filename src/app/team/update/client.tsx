@@ -1,20 +1,22 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter, useParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Team } from "@/types/team";
 import { TeamStorage } from "@/services/storage";
 import { FooterMenu } from "@/components/FooterMenu";
 import commonStyles from "@/styles/common.module.css";
 
-export function UpdateTeamClient() {
+type UpdateTeamClientProps = {
+  teamId?: string | null;
+};
+
+export function UpdateTeamClient({ teamId }: UpdateTeamClientProps) {
   const router = useRouter();
-  const params = useParams();
   const [team, setTeam] = useState<Team | null>(null);
 
   useEffect(() => {
-    const teamId = params?.teamId as string;
     if (!teamId) return;
 
     const teams = TeamStorage.getTeams();
@@ -22,11 +24,11 @@ export function UpdateTeamClient() {
     if (foundTeam) {
       setTeam(foundTeam);
     }
-  }, [params]);
+  }, [teamId]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const teamId = params?.teamId as string;
+    if (!teamId) return;
 
     const formData = new FormData(e.currentTarget);
     const updatedTeam: Team = {

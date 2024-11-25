@@ -22,7 +22,7 @@ export default function OpponentTeamPage() {
   };
 
   const handleCardClick = (teamId: string) => {
-    router.push(`/opponent/update/${teamId}`);
+    router.push(`/opponent/update?id=${teamId}`);
   };
 
   return (

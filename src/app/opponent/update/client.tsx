@@ -1,21 +1,23 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter, useParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { OpponentTeam } from "@/types/team";
 import { OpponentStorage } from "@/services/storage";
 import { FooterMenu } from "@/components/FooterMenu";
 import commonStyles from "@/styles/common.module.css";
-import styles from "../styles.module.css";
+import styles from "./styles.module.css";
 
-export function UpdateOpponentTeamClient() {
+type UpdateOpponentTeamClientProps = {
+  teamId?: string | null;
+};
+
+export function UpdateOpponentTeamClient({ teamId }: UpdateOpponentTeamClientProps) {
   const router = useRouter();
-  const params = useParams();
   const [team, setTeam] = useState<OpponentTeam | null>(null);
 
   useEffect(() => {
-    const teamId = params?.teamId as string;
     if (!teamId) return;
 
     const teams = OpponentStorage.getTeams();
@@ -23,11 +25,11 @@ export function UpdateOpponentTeamClient() {
     if (foundTeam) {
       setTeam(foundTeam);
     }
-  }, [params]);
+  }, [teamId]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const teamId = params?.teamId as string;
+    if (!teamId) return;
 
     const formData = new FormData(e.currentTarget);
     const updatedTeam: OpponentTeam = {

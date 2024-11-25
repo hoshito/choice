@@ -23,7 +23,7 @@ export default function TeamPage() {
   };
 
   const handleCardClick = (teamId: string) => {
-    router.push(`/team/update/${teamId}`);
+    router.push(`/team/update?id=${teamId}`);
   };
 
   return (
