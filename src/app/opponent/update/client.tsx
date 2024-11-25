@@ -18,7 +18,15 @@ export function UpdateOpponentTeamClient({ teamId }: UpdateOpponentTeamClientPro
   const [team, setTeam] = useState<OpponentTeam | null>(null);
 
   useEffect(() => {
-    if (!teamId) return;
+    if (!teamId) {
+      // 新規作成の場合は空のチームを設定
+      setTeam({
+        id: crypto.randomUUID(),
+        teamName: '',
+        memo: '',
+      });
+      return;
+    }
 
     const teams = OpponentStorage.getTeams();
     const foundTeam = teams.find((t) => t.id === teamId);
@@ -29,17 +37,21 @@ export function UpdateOpponentTeamClient({ teamId }: UpdateOpponentTeamClientPro
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!teamId) return;
 
     const formData = new FormData(e.currentTarget);
     const updatedTeam: OpponentTeam = {
-      id: teamId,
+      id: team?.id || crypto.randomUUID(),
       teamName: formData.get('teamName') as string,
       memo: formData.get('memo') as string,
     };
 
-    OpponentStorage.updateTeam(updatedTeam);
-    alert('チームを更新しました！');
+    if (teamId) {
+      OpponentStorage.updateTeam(updatedTeam);
+      alert('チームを更新しました！');
+    } else {
+      OpponentStorage.saveTeam(updatedTeam);
+      alert('チームを作成しました！');
+    }
     router.push('/opponent');
   };
 

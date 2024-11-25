@@ -17,7 +17,19 @@ export function UpdateTeamClient({ teamId }: UpdateTeamClientProps) {
   const [team, setTeam] = useState<Team | null>(null);
 
   useEffect(() => {
-    if (!teamId) return;
+    if (!teamId) {
+      setTeam({
+        id: crypto.randomUUID(),
+        teamName: '',
+        pokemon1: '',
+        pokemon2: '',
+        pokemon3: '',
+        pokemon4: '',
+        pokemon5: '',
+        pokemon6: '',
+      });
+      return;
+    }
 
     const teams = TeamStorage.getTeams();
     const foundTeam = teams.find((t) => t.id === teamId);
@@ -28,11 +40,10 @@ export function UpdateTeamClient({ teamId }: UpdateTeamClientProps) {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!teamId) return;
 
     const formData = new FormData(e.currentTarget);
     const updatedTeam: Team = {
-      id: teamId,
+      id: team?.id || crypto.randomUUID(),
       teamName: formData.get('teamName') as string,
       pokemon1: formData.get('pokemon1') as string,
       pokemon2: formData.get('pokemon2') as string,
@@ -42,8 +53,13 @@ export function UpdateTeamClient({ teamId }: UpdateTeamClientProps) {
       pokemon6: formData.get('pokemon6') as string,
     };
 
-    TeamStorage.updateTeam(updatedTeam);
-    alert('チームを更新しました！');
+    if (teamId) {
+      TeamStorage.updateTeam(updatedTeam);
+      alert('チームを更新しました！');
+    } else {
+      TeamStorage.saveTeam(updatedTeam);
+      alert('チームを作成しました！');
+    }
     router.push('/team');
   };
 
