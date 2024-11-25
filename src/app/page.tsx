@@ -1,13 +1,13 @@
 "use client";
 import { useEffect } from 'react'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 
 export default function Home() {
   const router = useRouter()
 
   useEffect(() => {
     router.push('/team')
-  }, [])
+  }, [router])
 
   return null
 }
